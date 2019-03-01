@@ -33,6 +33,7 @@ for lz in legacy_zones['HostedZones']:
 
     # list records in zones
     legacy_records = None
+    os.system("aws route53 list-resource-record-sets --hosted-zone-id " + zoneId + " --max-items 300 --profile legacy > " + zoneName + ".json")
 
     # get A, MX, CNAME, TXT records from each zone
     with open(zoneName + '.json') as file:
